@@ -2,7 +2,7 @@
 Erstellt notwendige Dateien für gecachte Version von wavesurfer.js
 
 Der SSW-Podcast-Creator...
-- konvertiert mp3-Dateien mit Hilfe von ffmpeg in eine AAC-Datei mit 128 kbps Bitrate,
+- ermittelt mit Hilfe von ffprobe (ffmpeg) die Länge der eingegebenen mp3-Datei,
 - erstellt mit Hilfe von BBCs audiowaveform eine JSON-Datei mit den Peaks
 - und wandelt diese mittels Python-Script in normierte Werte zwischen 0 und 1 um
 
@@ -14,3 +14,7 @@ Notwendige Voraussetzungen sind:
 - BBCs audiowaveform (https://github.com/bbc/audiowaveform)
 - Python
 - das Python-Script von wavesurfer.js (https://wavesurfer-js.org/faq/)
+
+## Vorlage
+
+Die Vorlage zu diesem Programm ist die Anleitung auf der Seite https://wavesurfer-js.org/faq/. Die Peak-Generierung wurde überarbeitet.
