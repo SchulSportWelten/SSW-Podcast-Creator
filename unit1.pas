@@ -98,19 +98,24 @@ procedure TForm1.Button6Click(Sender: TObject);
 var
   RunProgram: TProcess;
   a: String;
+  s : ansistring;
+  d: Extended;
+  duration: Integer;
 begin
   Memo1.Lines.Clear;
   Memo1.Lines.Add('----- Start -----');
   RunProgram := TProcess.Create(nil);
-  a := Edit1.Text + ' -i ' + Edit4.Text + ' -c:a aac -b:a 128k ' + ExtractFileNameWithoutExt(Edit4.Text) + '_conv.aac';
+  a := Edit1.Text + ' -i ' + Edit4.Text + ' -show_entries format=duration -v quiet -of csv="p=0"';
   Memo1.Lines.Add(a);
-  RunProgram.CommandLine := a;
-  RunProgram.Options := RunProgram.Options + [poWaitOnExit];
-  RunProgram.Execute;
-  RunProgram.Free;
+  if RunCommand('cmd.exe',['/c', a], s) then begin
+    s := StringReplace(s, '.', ',', [rfReplaceAll]);
+    Memo1.Lines.Add(s);
+    d := StrToFloat(StringReplace(s, #13#10, '', [rfReplaceAll]));
+    duration := round(d);
+  end;
 
   RunProgram := TProcess.Create(nil);
-  a := Edit2.Text + ' -i ' + Edit4.Text + ' -o ' + ExtractFileNameWithoutExt(Edit4.Text) + '.json --pixels-per-second 20 --bits 8';
+  a := Edit2.Text + ' -i ' + Edit4.Text + ' -o ' + ExtractFileNameWithoutExt(Edit4.Text) + '.json --end ' + IntToStr(duration) + ' --bits 8';
   Memo1.Lines.Add(a);
   RunProgram.CommandLine := a;
   RunProgram.Options := RunProgram.Options + [poWaitOnExit];
@@ -124,6 +129,7 @@ begin
   RunProgram.Options := RunProgram.Options + [poWaitOnExit];
   RunProgram.Execute;
   RunProgram.Free;
+
 
 end;
 

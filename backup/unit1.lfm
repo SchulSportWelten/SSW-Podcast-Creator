@@ -2746,8 +2746,8 @@ object Form1: TForm1
     Left = 40
     Height = 18
     Top = 160
-    Width = 88
-    Caption = 'Pfad zu ffmpeg:'
+    Width = 89
+    Caption = 'Pfad zu ffprobe:'
     Font.CharSet = ANSI_CHARSET
     Font.Height = -12
     Font.Name = 'Exo 2 Medium'
@@ -2762,7 +2762,7 @@ object Form1: TForm1
     Top = 155
     Width = 376
     TabOrder = 0
-    Text = 'D:\Thomas\Documents\SchulSportWelten\Radio\D8-Creator\ffmpeg\bin\ffmpeg.exe'
+    Text = 'D:\Thomas\Documents\SchulSportWelten\Radio\D8-Creator\ffmpeg\bin\ffprobe.exe'
   end
   object Label3: TLabel
     Left = 40

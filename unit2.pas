@@ -19,6 +19,7 @@ type
     Label3: TLabel;
     Label4: TLabel;
     Shape1: TShape;
+    procedure Label2Click(Sender: TObject);
   private
 
   public
@@ -31,6 +32,13 @@ var
 implementation
 
 {$R *.lfm}
+
+{ TForm2 }
+
+procedure TForm2.Label2Click(Sender: TObject);
+begin
+
+end;
 
 end.
 
